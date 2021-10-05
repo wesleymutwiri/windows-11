@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
+  let login_type = "Password"
   let time = new Date();
   let date = time.toLocaleString("en-US", {
     weekday: "long",
@@ -45,7 +46,6 @@
   {#if loginpage}
     <div
       class="App login-animation"
-      transition:fade
       on:click={() => (loginpage = false)}
     >
       <div class="time-container">
@@ -65,10 +65,19 @@
     <div class="login-page login-animation">
       <div class="avatar">
         <img src="windows-logo.png" alt="" />
-        <h1 class="no-break">
+        <p class="no-break">
         Wesley Mutwiri
-        </h1>
+        </p>
       </div>
+      <div class="input-form">
+        <input type="password" name="password" id="" placeholder="{login_type}">
+      </div>
+      <a href="#">
+        I forgot my {login_type}
+      </a>
+      <p>
+        Sign-in options   
+      </p>
     </div>
   {/if}
   <!-- {#if !loginpage}
@@ -83,6 +92,7 @@
   }
   .login-page {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
@@ -90,7 +100,7 @@
     /* border-radius: 50%; */
     width: 100px;
     height: 100px;
-    margin: auto;
+    margin: 20px auto;
   }
   .avatar img {
     border-radius: 50%;
@@ -100,17 +110,19 @@
   }
 
   .time-container {
-    padding-top: 200px;
+    padding-top: 150px;
     text-align: center;
   }
   .time-container h1 {
-    font-size: 5rem;
+    font-size: 4rem;
   }
   .time-container p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .login-animation {
-    background: blue;
+    background: url("background-banner.jpg");
+    background-position: center;
+    background-size: cover;
     color: #fff;
     height: 100vh;
   }
