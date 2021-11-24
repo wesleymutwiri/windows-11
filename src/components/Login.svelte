@@ -6,10 +6,11 @@
   <div class="form-field">
     <input type="password" name="" id="" placeholder="Password" />
     <svg
+      on:click
       viewBox="0 0 24 24"
-      width="24"
-      height="24"
-      stroke="currentColor"
+      width="16"
+      height="16"
+      stroke="#cfcfcf"
       stroke-width="2"
       fill="none"
       stroke-linecap="round"
@@ -91,5 +92,22 @@
   p {
     margin-bottom: 1rem;
     font-size: 0.8rem;
+  }
+
+  .form-field {
+    position: relative;
+  }
+
+  .form-field svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 8px;
+    z-index: 1;
+    transform: translateY(50%);
+  }
+
+  .form-field svg:hover {
+    cursor: pointer;
   }
 </style>

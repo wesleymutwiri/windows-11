@@ -3,6 +3,8 @@
   import { fade } from "svelte/transition";
 
   import LoginPage from "./components/Login.svelte";
+  import Dashboard from "./components/Dashboard.svelte";
+
 
   let login_type = "Password";
   let time = new Date();
@@ -16,7 +18,7 @@
     time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
   // $: seconds = time.getSeconds();
   let ready = false;
-  let loginpage = true;
+  let currentPage = "overlay";
   onMount(() => {
     setInterval(() => {
       ready = true;
@@ -46,8 +48,8 @@
 {/if}
 
 {#if ready}
-  {#if loginpage}
-    <div class="App login-animation" on:click={() => (loginpage = false)}>
+  {#if currentPage === "overlay"}
+    <div class="App login-animation" on:click={() => (currentPage = "login")}>
       <div class="time-container">
         <h1>
           {#if hours > 12}
@@ -61,8 +63,10 @@
         </p>
       </div>
     </div>
-  {:else}
-    <LoginPage />
+  {:else if currentPage === "login"}
+    <LoginPage on:click={() => currentPage = "dashboard"}/>
+  {:else if currentPage === "dashboard"}
+    <Dashboard />
   {/if}
   <!-- {#if !loginpage}
     login here
