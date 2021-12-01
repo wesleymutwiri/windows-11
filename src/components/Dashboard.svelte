@@ -9,16 +9,16 @@
       <p>Desktop</p>
     </div>
     <div class="icon">
-      <img src="desktop-icon.png" alt="" />
-      <p>Desktop</p>
+      <img src="file-icon.png" alt="" />
+      <p>Files</p>
     </div>
     <div class="icon">
-      <img src="desktop-icon.png" alt="" />
-      <p>Desktop</p>
+      <img src="spotify.png" alt="" />
+      <p>Spotify</p>
     </div>
     <div class="icon">
-      <img src="desktop-icon.png" alt="" />
-      <p>Desktop</p>
+      <img src="windows-store.png" alt="" />
+      <p>Store</p>
     </div>
   </div>
   <MenuBar />
@@ -35,9 +35,12 @@
     width: 100vw;
   }
   .column {
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: min-content;
   }
 
   .icon {
@@ -46,14 +49,17 @@
     align-items: center;
     width: max-content;
     height: max-content;
+    margin: 1rem;
+    text-align: center;
   }
 
-  .icon:hover {
-  }
-
+ .icon img {
+   height: 40px;
+   width: 40px;
+ }
   p {
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin-top: 0.5rem;
   }
 </style>

@@ -1,7 +1,42 @@
+<script>
+  import Taskbar from "./TaskBar.svelte";
+  let time = new Date();
+  let date = time.toLocaleString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+  $: hours = time.getHours();
+  $: minutes =
+    time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
+  $: fullDate = time.toLocaleString("en-US", {
+    year: "2-digit",
+    month: "numeric",
+    day: "numeric",
+  });
+</script>
+
 <footer>
   <div class="footer-container">
     <div class="taskbar-icons">
-      <img src="open-tasks-button.png" alt="" />
+      <Taskbar />
+      <svg
+        viewBox="0 0 24 24"
+        width="24"
+        height="24"
+        stroke="#fff"
+        stroke-width="2"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="search"
+        ><circle cx="11" cy="11" r="8" /><line
+          x1="21"
+          y1="21"
+          x2="16.65"
+          y2="16.65"
+        /></svg
+      >
       <img src="settings.png" alt="" />
       <img src="widget.png" alt="" />
       <img src="file-icon.png" alt="" />
@@ -77,13 +112,25 @@
           /></svg
         >
       </div>
+      <di class="time">
+        <span>
+          {#if hours > 12}
+            {hours - 12}:{minutes} PM
+          {:else}
+            {hours}:{minutes} AM
+          {/if}
+        </span>
+        <span>
+          {fullDate}
+        </span>
+      </di>
     </div>
   </div>
 </footer>
 
 <style>
   .footer-container {
-    background: rgba(28, 28, 40, 0.6);
+    background: rgba(28, 28, 40, 0.9);
     height: 39px;
     width: 100%;
     position: fixed;
@@ -96,6 +143,10 @@
   .taskbar-icons {
     justify-content: center;
     margin-left: auto;
+    position: relative;
+  }
+  .taskbar-icons img {
+    cursor: pointer;
   }
   .windows-icons {
     margin-left: auto;
@@ -103,12 +154,24 @@
   }
   .icon {
     color: #fff;
-    margin: auto 0.5rem;
+    margin: auto 0.2rem;
     cursor: pointer;
   }
-  img {
+  img, .search {
     height: 33px;
     width: 33px;
     padding: 5.5px;
+  }
+  .time {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-size: 0.64rem;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .search {
+    transform: rotate(90deg);
   }
 </style>
