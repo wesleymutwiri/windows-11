@@ -1,4 +1,6 @@
 <script>
+  import Calendar from "./Dashboard/Calendar.svelte";
+
   import MenuBar from "./Dashboard/MenuBar.svelte";
 </script>
 
@@ -21,6 +23,7 @@
       <p>Store</p>
     </div>
   </div>
+  <!-- <Calendar /> -->
   <MenuBar />
 </div>
 
@@ -51,12 +54,13 @@
     height: max-content;
     margin: 1rem;
     text-align: center;
+    cursor: pointer;
   }
 
- .icon img {
-   height: 40px;
-   width: 40px;
- }
+  .icon img {
+    height: 40px;
+    width: 40px;
+  }
   p {
     color: #fff;
     font-size: 0.75rem;

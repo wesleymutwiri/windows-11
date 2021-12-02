@@ -1,19 +1,6 @@
 <script>
   import Taskbar from "./TaskBar.svelte";
-  let time = new Date();
-  let date = time.toLocaleString("en-US", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  });
-  $: hours = time.getHours();
-  $: minutes =
-    time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
-  $: fullDate = time.toLocaleString("en-US", {
-    year: "2-digit",
-    month: "numeric",
-    day: "numeric",
-  });
+  import Calendar from "./Calendar.svelte";
 </script>
 
 <footer>
@@ -112,18 +99,7 @@
           /></svg
         >
       </div>
-      <di class="time">
-        <span>
-          {#if hours > 12}
-            {hours - 12}:{minutes} PM
-          {:else}
-            {hours}:{minutes} AM
-          {/if}
-        </span>
-        <span>
-          {fullDate}
-        </span>
-      </di>
+      <Calendar />
     </div>
   </div>
 </footer>
@@ -157,18 +133,11 @@
     margin: auto 0.2rem;
     cursor: pointer;
   }
-  img, .search {
+  img,
+  .search {
     height: 33px;
     width: 33px;
     padding: 5.5px;
-  }
-  .time {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.64rem;
-    padding: 0.5rem 1rem;
-    text-align: center;
   }
 
   .search {

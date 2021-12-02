@@ -1,5 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
+  import { quintIn } from "svelte/easing";
+
   let openTaskbar = true;
   let powerOff = true;
 </script>
@@ -8,7 +10,17 @@
   <img src="open-tasks-button.png" alt="" />
 </span>
 {#if openTaskbar}
-  <div class="taskbar-menu-items" transition:fly>
+  <div
+    class="taskbar-menu-items"
+    transition:fly={{
+      delay: 0,
+      duration: 100,
+      x: 0,
+      y: 100,
+      opacity: 0.5,
+      easing: quintIn,
+    }}
+  >
     <div class="row">
       <h5>Pinned</h5>
       <button class="iconed">
