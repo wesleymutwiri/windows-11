@@ -1,5 +1,5 @@
 <div class="spotify-page">
-    Spotify
+    Spotify Template
 </div>
 <style>
 </style>
