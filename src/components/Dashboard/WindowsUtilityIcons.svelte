@@ -1,5 +1,11 @@
 <script>
   let utilityIconCalled = true;
+  let wifiIconCalled = true;
+  let bluetoothIconCalled = false;
+  let theme = "dark";
+  let flightIconCalled = false;
+  let batterySaverIconCalled = false;
+  let nightIconCalled = false;
 </script>
 
 <div
@@ -65,7 +71,11 @@
   <div class="menu-buttons">
     <div class="grid-icons">
       <div class="column">
-        <div class="utility-icon active">
+        <div
+          class:active={wifiIconCalled}
+          class="utility-icon"
+          on:click={() => (wifiIconCalled = !wifiIconCalled)}
+        >
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -89,7 +99,11 @@
         <p>Wifi</p>
       </div>
       <div class="column">
-        <div class="utility-icon">
+        <div
+          class:active={bluetoothIconCalled}
+          class="utility-icon"
+          on:click={() => (bluetoothIconCalled = !bluetoothIconCalled)}
+        >
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -108,7 +122,11 @@
         <p>Bluetooth</p>
       </div>
       <div class="column">
-        <div class="utility-icon">
+        <div
+          class:active={theme === "dark"}
+          class="utility-icon"
+          on:click={() => (theme ? "dark" : "light")}
+        >
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -157,7 +175,11 @@
         <p>Theme</p>
       </div>
       <div class="column">
-        <div class="utility-icon">
+        <div
+          class:active={batterySaverIconCalled}
+          class="utility-icon"
+          on:click={() => (batterySaverIconCalled = !batterySaverIconCalled)}
+        >
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -176,10 +198,14 @@
             /><line x1="17.5" y1="15" x2="9" y2="15" /></svg
           >
         </div>
-        <p>Flight mode</p>
+        <p>Battery Saver</p>
       </div>
       <div class="column">
-        <div class="utility-icon">
+        <div
+          class:active={nightIconCalled}
+          class="utility-icon"
+          on:click={() => (nightIconCalled = !nightIconCalled)}
+        >
           <svg
             viewBox="0 0 24 24"
             width="18"
@@ -216,7 +242,11 @@
         <p>Night light</p>
       </div>
       <div class="column">
-        <div class="utility-icon">
+        <div
+          class:active={flightIconCalled}
+          class="utility-icon"
+          on:click={() => (flightIconCalled = !flightIconCalled)}
+        >
           <img
             class="airplane-mode"
             src="https://img.icons8.com/ios-glyphs/30/000000/airplane-mode-on.png"
@@ -386,6 +416,10 @@
   .utility-icon.active {
     background: #4cc2ff;
     color: #000;
+  }
+
+  .utility-icon.active .airplane-mode {
+    filter: none;
   }
 
   input[type="range"] {
