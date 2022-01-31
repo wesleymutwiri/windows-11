@@ -15,10 +15,15 @@
 
 <style>
   .calendar-day {
-    padding: 0.2rem;
+    padding: .8rem;
     color: #fff;
     cursor: pointer;
-    font-size: 0.64rem;
+    font-size: 0.75rem;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   /* .calendar-day:hover {
     background-color: #e2e8f0;
@@ -30,9 +35,10 @@
     background-color: #cbd5e0;
   } */
   .calendar-day--today {
-    background: #ffbd2a;
+    background: #4cc2ff;
+    border-radius: 50%;
   }
   .calendar-day--today:hover {
-    background: #f5a700;
+    background: #006191;
   }
 </style>

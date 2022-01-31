@@ -256,7 +256,7 @@
         <p>Flight mode</p>
       </div>
     </div>
-    <div class="row">
+    <div class="row range-selections">
       <div class="brightness-range">
         <label for="brightness">
           <svg
@@ -391,6 +391,9 @@
     width: 18px;
   }
 
+  .range-selections {
+    margin-bottom: 2rem;
+  }
   .volume-range,
   .brightness-range {
     display: flex;
@@ -430,7 +433,12 @@
     font-size: 0.75rem;
     display: flex;
     align-items: center;
-    background: #00000033;
+    background: #17191d;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-left: -1rem;
   }
   .battery-percentage svg {
     margin-right: 0.5rem;

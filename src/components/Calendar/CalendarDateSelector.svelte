@@ -21,39 +21,42 @@
 </script>
 
 <div class="calendar-date-selector">
-  <span on:click={selectPrevious}>
-    <svg
-      viewBox="0 0 24 24"
-      width="14"
-      height="14"
-      stroke="currentColor"
-      stroke-width="2"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="triangle-left"
-      ><path
-        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-      /></svg
-    >
-  </span>
   <span on:click={selectCurrent}> {selectedDate.format("MMMM YYYY")}</span>
-  <span on:click={selectNext}>
-    <svg
-      viewBox="0 0 24 24"
-      width="14"
-      height="14"
-      stroke="currentColor"
-      stroke-width="2"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="triangle-right"
-      ><path
-        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
-      /></svg
-    >
-  </span>
+  <div class="row">
+    <span on:click={selectPrevious}>
+      <svg
+        viewBox="0 0 24 24"
+        width="10"
+        height="10"
+        stroke="none"
+        stroke-width="2"
+        fill="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="triangle-top"
+        ><path
+          d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+        /></svg
+      >
+    </span>
+
+    <span on:click={selectNext}>
+      <svg
+        viewBox="0 0 24 24"
+        width="10"
+        height="10"
+        stroke="none"
+        stroke-width="2"
+        fill="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="triangle-bottom"
+        ><path
+          d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+        /></svg
+      >
+    </span>
+  </div>
 </div>
 
 <style>
@@ -66,10 +69,14 @@
     justify-content: space-between;
     width: 100%;
   }
-  .triangle-right {
-    transform: rotate(90deg);
+  .row span {
+    padding: 0.6rem;
+    cursor: pointer;
   }
-  .triangle-left {
-    transform: rotate(270deg);
+  .row span:hover {
+    background: #17191d;
+  }
+  .triangle-bottom {
+    transform: rotate(180deg);
   }
 </style>
