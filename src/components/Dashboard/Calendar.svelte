@@ -172,7 +172,7 @@
   .days-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1rem .5rem;
+    gap: .5rem;
     width: 100%;
     align-items: center;
     margin: 1rem 0;
